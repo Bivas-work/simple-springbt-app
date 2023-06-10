@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.simpeapp</groupId>
-	<artifactId>simple-app</artifactId>
+	<artifactId>simple-springbt-app</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>simple-app</name>
+	<name>simple-springbt-app</name>
 	<description>CRUD operation project</description>
 	<dependencies>
 		<dependency>

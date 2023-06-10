@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import com.example.simpeapp.simpleapp.Document.Student;
+import com.example.simpeapp.simpleapp.entity.Student;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,5 +26,17 @@ public class StudentService {
 
     public List<Student> getAllStudents() {
          return studentRepository.findAll();
+    }
+
+    public Student updateStudent(Student student) {
+         return studentRepository.save(student);
+    }
+
+    public void deleteStudent(Long id) {
+         studentRepository.deleteById(id);
+    }
+
+    public void deleteAllStudents() {
+         studentRepository.deleteAll();
     }
 }
