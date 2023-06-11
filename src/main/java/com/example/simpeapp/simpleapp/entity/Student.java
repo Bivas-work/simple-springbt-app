@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -27,4 +29,10 @@ public class Student {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id",referencedColumnName = "id")
     private Address address;
+
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "student_teacher_map", joinColumns = { @JoinColumn(name = "student_id",
+            referencedColumnName = "id")}
+    ,inverseJoinColumns = {@JoinColumn(name = "teacher_id",referencedColumnName = "id")})
+    private Set<Teacher> teachers;
 }

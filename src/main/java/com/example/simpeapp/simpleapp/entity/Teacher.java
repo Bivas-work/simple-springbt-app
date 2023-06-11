@@ -1,9 +1,7 @@
 package com.example.simpeapp.simpleapp.entity;
 
-
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,18 +9,21 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-public class ClassRoom {
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    Long classId;
+    private Long id;
 
     @Column
-    @Size(min=1)
-    String className;
+    private String teachName;
 
-    @OneToMany(mappedBy = "classRoom")
-    @Nullable
+    @Column
+    private String department;
+
+    @ManyToMany(mappedBy = "teachers")
     Set<Student> students;
+
 
 }

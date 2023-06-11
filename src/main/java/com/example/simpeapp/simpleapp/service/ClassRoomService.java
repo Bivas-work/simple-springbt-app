@@ -1,7 +1,10 @@
 package com.example.simpeapp.simpleapp.service;
 
+import com.example.simpeapp.simpleapp.dto.ClassRoomDTO;
 import com.example.simpeapp.simpleapp.entity.ClassRoom;
+import com.example.simpeapp.simpleapp.exceptions.CustomExceptions;
 import com.example.simpeapp.simpleapp.repository.ClassRoomEntity;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +15,10 @@ public class ClassRoomService {
 
     @Autowired
     ClassRoomEntity classRoomEntity;
-    public ClassRoom getClassRoomById(Long id) {
-        return this.classRoomEntity.findById(id).orElse(new ClassRoom());
+
+
+    public ClassRoom getClassRoomById(Long id) throws CustomExceptions{
+        return this.classRoomEntity.findById(id).orElseThrow(CustomExceptions::new);
     }
 
     public List<ClassRoom> getAllClassRooms() {

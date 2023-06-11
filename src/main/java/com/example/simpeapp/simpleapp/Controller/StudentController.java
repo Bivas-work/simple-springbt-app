@@ -12,7 +12,7 @@ import com.example.simpeapp.simpleapp.service.StudentService;
 
 import java.util.List;
 
-@RestController()
+@RestController
 @RequestMapping("/api")
 public class StudentController {
 
